@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Secrets of Florida</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <img src="logo.jpg" alt="Logo">     
+    </div>
+    <nav class="nav">
+      <a href="index.html"><span class="lock">&#128274;</span> Home</a>
+      <a href="FloridaNews.html"><span class="lock">&#128274;</span> Florida News</a>
+      <a href="OurMission.html"><span class="lock">&#128274;</span> Our Mission</a>
+      <a href="SelectionBar.html"><span class="lock">&#128274;</span> Selection Bar</a>
+      <a href="AllSavedLocations.html"><span class="lock">&#128274;</span> All Saved Locations</a>   
+    </nav>
+  </div>
+
+  <div class="content container">
+    <div class="location-list">
+      <div class="location-item" data-type="wildlife">
+        <div>
+          <h3 id="ocala">Ocala National Forest</h3>
+          <p>Nestled between well-known theme parks and white, sandy beaches, the jewels of the Ocala National Forest attract visitors from around the world.</p>
+          <img src="Ocala National Forest.jpg" alt="Ocala National Forest" width="100" height="100" style="object-fit: cover;">
+        </div>
+        <input type="checkbox" class="location-checkbox" data-name="Ocala National Forest" data-lat="29.1713" data-lng="-81.8123">
+      </div>
+      <div class="location-item" data-type="springs">
+        <div>
+          <h3 id="tarpon">Tarpon Springs</h3>
+          <p>Known as the “Sponge Capital of the World,” Tarpon Springs, 30 minutes north of Clearwater on Florida’s Gulf Coast, is a destination like no other.</p>
+          <img src="Tarpon_Springs_Statue.jpg" alt="Tarpon_Springs_Statue" width="100" height="100" style="object-fit: cover;">
+        </div>
+        <input type="checkbox" class="location-checkbox" data-name="Tarpon Springs" data-lat="28.1461" data-lng="-82.7568">
+      </div>
+      <div class="location-item" data-type="river">
+        <div>
+          <h3 id="gordon">Gordon River Greenway</h3>
+          <p>The 140-acre Gordon River Greenway Park provides an ecological corridor in the heart of urban Naples that offers visitors the opportunity to view wildlife and gain an appreciation for Southwest Florida’s natural beauty. </p>
+          <img src="Gordon River Greenway.jpg" alt="Gordon River Greenway" width="100" height="100" style="object-fit: cover;">
+        </div>
+        <input type="checkbox" class="location-checkbox" data-name="Gordon River Greenway" data-lat="26.1517" data-lng="-81.7818">
+      </div>
+      <div class="location-item" data-type="beach">
+        <div>
+          <h3 id="westPalm">West Palm Beach</h3>
+          <p>Located along Florida’s Atlantic Ocean coast, West Palm Beach offers visitors year-round excitement within easy reach of smooth-sand beaches and some of the nation’s most enticing waterways.</p>
+          <img src="West Palm Beach.jpeg" alt="West Palm Beach" width="100" height="100" style="object-fit: cover;">
+        </div>
+        <input type="checkbox" class="location-checkbox" data-name="West Palm Beach" data-lat="26.7153" data-lng="-80.0534">
+      </div>
+      
+    </div>
+
+    <div class="filters">
+      <input type="text" id="searchBar" placeholder="Search">
+      <div>
+        <label><input type="checkbox" id="filterBeaches"> Beaches</label>
+        <label><input type="checkbox" id="filterWildlife"> Wildlife</label>
+        <label><input type="checkbox" id="filterRiver"> Rivers</label>
+        <label><input type="checkbox" id="filterSprings"> Springs</label>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.filters input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                document.querySelectorAll('.filters input[type="checkbox"]').forEach(otherCheckbox => {
+                    if (otherCheckbox !== this) {
+                        otherCheckbox.checked = false;
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
